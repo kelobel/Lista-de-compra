@@ -1,0 +1,334 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-11T03:50:22.474Z",
+    "end": "2025-04-11T03:50:25.596Z",
+    "duration": 3122,
+    "testsRegistered": 5,
+    "passPercent": 20,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 4,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "ec0b6665-eb8b-42a3-ab51-a339dd70a0f3",
+      "title": "",
+      "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+      "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7073ca99-dbd0-4460-9896-dd1172cbcdca",
+          "title": "Lista de Compras - Tests de Integración con Puppeteer",
+          "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+          "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer \"before all\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "timedOut": false,
+              "duration": 2617,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Comprobar si la aplicación está disponible\nconsole.log(\"Verificando disponibilidad de la aplicación...\");\ntry {\n  appAvailable = await checkAppAvailability(APP_HOST, APP_PORT, 10000);\n  console.log(`Aplicación disponible: ${appAvailable}`);\n} catch (error) {\n  console.error(\"Error al verificar disponibilidad:\", error);\n  appAvailable = false;\n}\n\nif (!appAvailable) {\n  console.error('ADVERTENCIA: La aplicación no está disponible en http://localhost:3000');\n  console.error('Asegúrate de ejecutar \"npm run dev\" antes de las pruebas.');\n  this.skip(); // Saltamos todas las pruebas si la aplicación no está disponible\n  return;\n}\n\ntry {\n  // Inicializar el navegador\n  browser = await setupBrowser();\n  \n  // Crear una nueva página\n  page = await browser.newPage();\n  \n  // Configurar la página\n  await page.setViewport({ width: 1366, height: 768 });\n  \n  // Inicializar la clase de la página\n  shoppingListPage = new ShoppingListPagePuppeteer(page);\n  \n  // Navegar a la aplicación\n  await shoppingListPage.navigateTo(APP_URL);\n  \n  // Tomar captura inicial\n  await takeScreenshot(page, 'initial-state');\n} catch (error) {\n  console.error(\"Error en la configuración inicial:\", error);\n  throw error;\n}",
+              "err": {},
+              "uuid": "c574f5ae-2a2b-4976-92fc-def9e3567394",
+              "parentUUID": "7073ca99-dbd0-4460-9896-dd1172cbcdca",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer \"after all\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "timedOut": false,
+              "duration": 302,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (browser) {\n  await browser.close();\n}",
+              "err": {},
+              "uuid": "43d140f1-e574-44e6-96a1-50f455e13773",
+              "parentUUID": "7073ca99-dbd0-4460-9896-dd1172cbcdca",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer \"after each\" hook in \"Lista de Compras - Tests de Integración con Puppeteer\"",
+              "timedOut": false,
+              "duration": 81,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (page && this.currentTest) {\n  const testStatus = this.currentTest.state === 'passed' ? 'passed' : 'failed';\n  await takeScreenshot(page, `${this.currentTest.title}-${testStatus}`);\n}",
+              "err": {},
+              "uuid": "8a24a106-0356-4ca4-80a4-ae5948d9fc3d",
+              "parentUUID": "7073ca99-dbd0-4460-9896-dd1172cbcdca",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "5fe37f1b-5cd6-4bec-a4ab-d68d0a58222a",
+              "title": "Historia de Usuario 1: Añadir productos a la lista de compras",
+              "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "debería poder añadir un nuevo producto a la lista",
+                  "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer Historia de Usuario 1: Añadir productos a la lista de compras debería poder añadir un nuevo producto a la lista",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Agregar un producto - versión simplificada\nawait shoppingListPage.addProduct('Manzanas', '2');\n\n// Verificar que se añadió algún producto mediante el conteo\nconst countAfterAdd = await shoppingListPage.getProductCount();\nexpect(countAfterAdd).to.be.at.least(1, \"Debería haber al menos 1 producto después de añadir\");",
+                  "err": {},
+                  "uuid": "b09cc216-5581-440c-aa8d-647163925ac0",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "b09cc216-5581-440c-aa8d-647163925ac0"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "a904d9d8-ab7a-40d9-b041-15299be9dd63",
+              "title": "Historia de Usuario 2: Marcar productos como comprados",
+              "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "debería poder marcar un producto como comprado",
+                  "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer Historia de Usuario 2: Marcar productos como comprados debería poder marcar un producto como comprado",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Agregar un producto si la lista está vacía\nconst countBefore = await shoppingListPage.getProductCount();\nif (countBefore === 0) {\n  await shoppingListPage.addProduct('Leche', '1');\n}\n\n// Marcar el primer producto como comprado\nawait shoppingListPage.markProductAsCompleted();\n\n// No podemos verificar directamente el estado, pero podemos capturar pantalla para verificación visual\nawait takeScreenshot(page, 'product-marked-complete');\n\n// Asumimos éxito si no hay errores durante la ejecución\nexpect(true).to.be.true;",
+                  "err": {},
+                  "uuid": "9eeefddb-95d8-402e-834a-d084b26f1e50",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "9eeefddb-95d8-402e-834a-d084b26f1e50"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "22e615ab-a4d6-4285-956a-ba9ad0162d83",
+              "title": "Historia de Usuario 3: Eliminar productos de la lista",
+              "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "debería poder eliminar un producto de la lista",
+                  "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer Historia de Usuario 3: Eliminar productos de la lista debería poder eliminar un producto de la lista",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Contar productos antes\nconst countBefore = await shoppingListPage.getProductCount();\n\n// Agregar un producto si la lista está vacía\nif (countBefore === 0) {\n  await shoppingListPage.addProduct('Producto Temporal', '1');\n}\n\n// Capturar el conteo después de agregar\nconst countAfterAdd = await shoppingListPage.getProductCount();\n\n// Eliminar un producto\nawait shoppingListPage.deleteProduct();\n\n// Verificar que el número de productos ha cambiado (versión más flexible)\nconst countAfterDelete = await shoppingListPage.getProductCount();\nexpect(countAfterDelete).to.be.at.most(countAfterAdd, \"El número de productos debería ser menor o igual después de eliminar\");",
+                  "err": {},
+                  "uuid": "4a3365a3-a0b8-44df-ac04-4e259416319b",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "4a3365a3-a0b8-44df-ac04-4e259416319b"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "51086fb3-531e-4227-8084-9fb0c01d0dc4",
+              "title": "Historia de Usuario 4: Filtrar productos por estado",
+              "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "debería poder aplicar diferentes filtros a la lista de productos",
+                  "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer Historia de Usuario 4: Filtrar productos por estado debería poder aplicar diferentes filtros a la lista de productos",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Filtrar por \"Todos\" (índice 0)\nawait shoppingListPage.filterProducts(0);\nawait takeScreenshot(page, 'filter-all');\n\n// Filtrar por \"Pendientes\" (índice 1)\nawait shoppingListPage.filterProducts(1);\nawait takeScreenshot(page, 'filter-pending');\n\ntry {\n  // Filtrar por \"Comprados\" (índice 2) - con manejo de errores\n  await shoppingListPage.filterProducts(2);\n  await takeScreenshot(page, 'filter-completed');\n} catch (error) {\n  console.log('Solo se encontraron 2 filtros disponibles, no se aplicó el tercer filtro');\n}\n\n// Si llegamos hasta aquí sin errores, consideramos que los filtros funcionan\nexpect(true).to.be.true;",
+                  "err": {},
+                  "uuid": "7e6064bd-651d-44f7-9730-514fd3b28764",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "7e6064bd-651d-44f7-9730-514fd3b28764"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            },
+            {
+              "uuid": "2e0f9650-f0be-4894-9194-3c34eb76dabe",
+              "title": "Historia de Usuario 5: Ver estadísticas de la lista de compras",
+              "fullFile": "C:\\Users\\kelov\\Desktop\\Lista de compra\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "file": "\\tests\\selenium\\tests\\shopping-list-puppeteer.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "la aplicación debe mostrar estadísticas sobre los productos",
+                  "fullTitle": "Lista de Compras - Tests de Integración con Puppeteer Historia de Usuario 5: Ver estadísticas de la lista de compras la aplicación debe mostrar estadísticas sobre los productos",
+                  "timedOut": false,
+                  "duration": 114,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Tomar captura de pantalla para verificación visual de las estadísticas\nawait takeScreenshot(page, 'statistics-view');\n\n// No podemos verificar directamente las estadísticas sin selectores específicos\n// pero podemos verificar que hay productos en la lista\nconst productCount = await shoppingListPage.getProductCount();\nexpect(productCount).to.be.at.least(0, \"Debería poder mostrar el número de productos\");",
+                  "err": {},
+                  "uuid": "fad3fffd-4d92-4272-9b13-f34894ad2d41",
+                  "parentUUID": "2e0f9650-f0be-4894-9194-3c34eb76dabe",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fad3fffd-4d92-4272-9b13-f34894ad2d41"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 114,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 60000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "test-statistics",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "tests/reports",
+        "reportFilename": "test-statistics"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

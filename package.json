@@ -6,10 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-results",
+    "test:add": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --grep \"añadir un nuevo producto\" --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-add-product",
+    "test:mark": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --grep \"marcar un producto como comprado\" --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-mark-completed", 
+    "test:delete": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --grep \"eliminar un producto\" --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-delete-product",
+    "test:filter": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --grep \"aplicar diferentes filtros\" --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-filter-products",
+    "test:stats": "mocha tests/selenium/tests/shopping-list-puppeteer.test.js --grep \"estadísticas sobre los productos\" --timeout 60000 --reporter mochawesome --reporter-options reportDir=tests/reports,reportFilename=test-statistics"
   },
   "dependencies": {
-    "@hookform/resolvers":  "^3.9.1",
+    "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
     "@radix-ui/react-aspect-ratio": "^1.1.1",
@@ -63,8 +69,31 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chai": "^5.2.0",
+    "chromedriver": "^135.0.1",
+    "mocha": "^11.1.0",
+    "mochawesome": "^7.1.3",
     "postcss": "^8",
+    "puppeteer": "^24.6.1",
+    "selenium-webdriver": "^4.31.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
-  }
+  },
+  "description": "![image](https://github.com/user-attachments/assets/9a76e4c4-24d2-43eb-92a0-2450fd2bbd71)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelobel/Lista-de-compra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelobel/Lista-de-compra/issues"
+  },
+  "homepage": "https://github.com/kelobel/Lista-de-compra#readme"
 }
